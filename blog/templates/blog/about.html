@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block test %}
+{% if title %}
+    <title>{{ title }} - Home</title>
+{% else %}
+    <title>TrubaTalks Bloggers</title>
+{% endif %}
+{% endblock test %}
+
+{% block content %}
+<h3>TrubaTalks - About Page</h3>
+<p>TRUBA Group of Institutes is engaged in carrying out the quality education in the field of technological development. 
+It imparts training to students so that they become competent and motivated intellectuals. Truba celebrates freedom of thoughts, 
+cultivates human values, and concern for the environment and the society. The institutes of Truba Group are rated among the top 
+colleges of MP.</p>
+<p>TRUBA Group of Institutes is a renowned name in the field of technical & professional education in the Central India region. 
+The group was formed in the year 2001 at Bhopal, nurtured and promoted by the Young & Dynamic Technocrats under the auspicious 
+guidance from the senior most technocrats, who have a vast experience of serving the state government under various capacities.</p>
+{% endblock content %}

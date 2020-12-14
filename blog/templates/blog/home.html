@@ -1,0 +1,38 @@
+﻿{% extends 'blog/base.html' %}
+{% load static %}
+{% block test %}
+{% if title %}
+    <title>{{ title }} - Home</title>
+{% else %}
+    <title>TrubaTalks Bloggers</title>
+{% endif %}
+{% endblock test %}
+<link rel="icon" href="{% static 'images/Truba_Logo.jpg' %}" type="image/ico" />
+{% block content %}
+<img src="{% static 'images/Truba_Logo.jpg' %}" style="float:left;height:120px;border-radius:400px;"/>
+<h1 style="text-align: center;">TrubaTalks - "The Bloggers of Truba"</h1>
+<br>
+<p>
+
+It was introduced by Prof. Amit Saxena (HOD of CSE Department) in 2014. Since its inception, 
+various students have been a part of the team to build and manage web development projects for the college. Truba Web Team 
+is also behind the management of Truba Group’s website. The members of the club routinely recruit new students to help them learn 
+new skills and gain experience when it comes to web development.</p>
+<hr />
+{% for i in posts %}
+
+<div class="designer_div">
+	<a href="{% url 'post-detail' i.id %}">
+	<h2>{{ i.title }}</h2>
+	<p>{{ i.content|truncatewords:30 }}</p>
+	<p>By {{ i.author }}, posted on {{ i.date_posted }}</p>
+	</a>
+	{% if user.is_authenticated and user == i.author %}
+		<table><tr>
+			<td><a href="{% url 'post-update' i.id %}">Edit Post</a></td>
+			<td><a href="{% url 'post-delete' i.id %}">Delete Post</td>
+		</tr></table>
+	{% endif %}
+</div>
+{% endfor %}
+{% endblock content %}

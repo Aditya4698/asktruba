@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block test %}
+{% if title %}
+    <title>{{ title }} Truba Bhopal</title>
+{% else %}
+    <title>Welcome to Truba</title>
+{% endif %}
+{% endblock test %}
+
+{% block content %}
+<h3>You are successfully logged out!!</h3>
+<h5>Login Again</h5>
+<a href="{% url 'login' %}">Log in again..</a>
+{% endblock content %}
